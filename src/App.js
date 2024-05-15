@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Todos from './components/Todos';
+import { totalTodos } from './state/TotalTodos';
+import { useRecoilValue } from 'recoil';
 
 function App() {
+  const totalTodoState = useRecoilValue(totalTodos)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='App'>
+        <h1>To do list</h1>
+        <Todos />
+        <h3>Total ToDo's: {totalTodoState} </h3>  
+      </div>
   );
 }
-
 export default App;
